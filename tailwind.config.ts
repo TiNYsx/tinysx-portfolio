@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,16 +53,27 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+				// Custom hacker theme colors
+				'hacker-green': {
+					50: '#f0fff0',
+					100: '#dcffdc',
+					400: '#39ff14',
+					500: '#00ff00',
+					600: '#00d900',
+					700: '#00b300',
+					800: '#008000',
+					900: '#004000',
+				},
+				'dark-bg': {
+					50: '#2a2a2a',
+					100: '#1f1f1f',
+					900: '#1a1a1a',
+					950: '#0d0d0d',
 				}
+			},
+			fontFamily: {
+				'mono': ['Fira Code', 'Monaco', 'Cascadia Code', 'Roboto Mono', 'monospace'],
+				'sans': ['Inter', 'system-ui', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +96,58 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'typing': {
+					'0%': {
+						width: '0%'
+					},
+					'100%': {
+						width: '100%'
+					}
+				},
+				'blink': {
+					'0%, 50%': {
+						'border-color': 'transparent'
+					},
+					'51%, 100%': {
+						'border-color': '#39ff14'
+					}
+				},
+				'matrix-rain': {
+					'0%': {
+						transform: 'translateY(-100vh)'
+					},
+					'100%': {
+						transform: 'translateY(100vh)'
+					}
+				},
+				'glow': {
+					'0%, 100%': {
+						boxShadow: '0 0 5px #39ff14'
+					},
+					'50%': {
+						boxShadow: '0 0 20px #39ff14, 0 0 30px #39ff14'
+					}
+				},
+				'fade-in-up': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(30px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'typing': 'typing 3s steps(20) 1s both',
+				'blink': 'blink 1s step-end infinite',
+				'matrix-rain': 'matrix-rain 3s linear infinite',
+				'glow': 'glow 2s ease-in-out infinite alternate',
+				'fade-in-up': 'fade-in-up 0.8s ease-out forwards'
 			}
 		}
 	},
