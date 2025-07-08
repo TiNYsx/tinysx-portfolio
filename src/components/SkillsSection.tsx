@@ -26,11 +26,10 @@ const SkillsSection = () => {
     {
       title: t('skills.specializations'),
       skills: [
-        { name: 'AI Integration', level: 75, color: '#39ff14' },
-        { name: 'Web Development', level: 85, color: '#39ff14' },
-        { name: 'Game Development', level: 80, color: '#39ff14' },
-        { name: 'Mobile Apps', level: 70, color: '#39ff14' },
-        { name: 'GUI Development', level: 85, color: '#39ff14' },
+        { name: 'AI Integration', level: 75, color: '#9d4edd' },
+        { name: 'Web Development', level: 85, color: '#06d6a0' },
+        { name: 'Mobile Apps', level: 70, color: '#f77f00' },
+        { name: 'GUI Development', level: 85, color: '#fcbf49' },
       ]
     }
   ];
@@ -70,7 +69,7 @@ const SkillsSection = () => {
                         className="h-full rounded-full transition-all duration-1000 ease-out"
                         style={{
                           width: `${skill.level}%`,
-                          background: `linear-gradient(90deg, ${skill.color === '#39ff14' ? skill.color : skill.color}, #39ff14)`,
+                          backgroundColor: skill.color,
                           boxShadow: `0 0 10px ${skill.color}`,
                         }}
                       />

@@ -12,7 +12,8 @@ const ProjectsSection = () => {
       tags: ['AI', 'Web Development', 'JavaScript', 'Python'],
       icon: <Bot className="w-6 h-6" />,
       status: t('projects.status.development'),
-      type: 'ai'
+      type: 'ai',
+      link: 'https://preview--diamond-cirriculum-assistant.lovable.app/'
     },
     {
       title: t('projects.minecraft.title'),
@@ -21,7 +22,8 @@ const ProjectsSection = () => {
       icon: <Gamepad2 className="w-6 h-6" />,
       github: 'https://github.com/TiNYsx/WelcomeAds',
       status: t('projects.status.completed'),
-      type: 'game'
+      type: 'game',
+      link: 'https://www.spigotmc.org/resources/%E2%9C%A8welcomeads%E2%9C%A8-screen-page-scroll-animation-gui-1-20.122137/'
     },
     {
       title: t('projects.mobile.title'),
@@ -29,7 +31,8 @@ const ProjectsSection = () => {
       tags: ['.NET MAUI', 'C#', 'Cross-platform', 'Mobile Development'],
       icon: <Smartphone className="w-6 h-6" />,
       status: t('projects.status.completed'),
-      type: 'mobile'
+      type: 'mobile',
+      link: 'https://github.com/TiNYsx'
     },
     {
       title: t('projects.java.title'),
@@ -37,15 +40,17 @@ const ProjectsSection = () => {
       tags: ['Java', 'Swing', 'GUI Development', 'Desktop Apps'],
       icon: <Monitor className="w-6 h-6" />,
       status: t('projects.status.completed'),
-      type: 'desktop'
+      type: 'desktop',
+      link: 'https://github.com/TiNYsx'
     },
     {
       title: t('projects.python.title'),
       description: t('projects.python.description'),
-      tags: ['Python', 'Tkinter', 'PyQt', 'GUI Development'],
+      tags: ['Python', 'Tkinter', 'GUI Development'],
       icon: <Code className="w-6 h-6" />,
       status: t('projects.status.completed'),
-      type: 'desktop'
+      type: 'desktop',
+      link: 'https://github.com/TiNYsx'
     },
     {
       title: t('projects.website.title'),
@@ -53,7 +58,8 @@ const ProjectsSection = () => {
       tags: ['HTML', 'CSS', 'JavaScript', 'Competitive Programming'],
       icon: <Globe className="w-6 h-6" />,
       status: t('projects.status.completed'),
-      type: 'web'
+      type: 'web',
+      link: 'https://github.com/TiNYsx'
     }
   ];
 
@@ -72,6 +78,12 @@ const ProjectsSection = () => {
     return colors[type as keyof typeof colors] || 'from-gray-500/20 to-gray-600/20 border-gray-500/30';
   };
 
+  const handleProjectClick = (project: any) => {
+    if (project.link) {
+      window.open(project.link, '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
     <section id="projects" className="py-20 px-4 bg-dark-bg-950">
       <div className="max-w-7xl mx-auto">
@@ -83,6 +95,7 @@ const ProjectsSection = () => {
           {projects.map((project, index) => (
             <div
               key={project.title}
+              onClick={() => handleProjectClick(project)}
               className={`project-card bg-gradient-to-br ${getTypeColor(project.type)} hover:scale-105 transform transition-all duration-300 group cursor-hover-effect`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
@@ -97,11 +110,12 @@ const ProjectsSection = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-foreground/60 hover:text-hacker-green-400 transition-colors cursor-hover-effect"
+                      onClick={(e) => e.stopPropagation()}
                     >
                       <Github className="w-5 h-5" />
                     </a>
                   )}
-                  {project.status === t('projects.status.completed') && (
+                  {project.link && (
                     <ExternalLink className="w-5 h-5 text-foreground/60 hover:text-hacker-green-400 transition-colors cursor-hover-effect" />
                   )}
                 </div>
