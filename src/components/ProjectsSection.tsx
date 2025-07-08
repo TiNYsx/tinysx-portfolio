@@ -18,7 +18,7 @@ const ProjectsSection = () => {
     {
       title: t('projects.minecraft.title'),
       description: t('projects.minecraft.description'),
-      tags: ['Java', 'Maven', 'Spigot API', 'Game Development', 'API Integration'],
+      tags: ['Java', 'Maven', 'Spigot API', 'API Integration'],
       icon: <Gamepad2 className="w-6 h-6" />,
       github: 'https://github.com/TiNYsx/WelcomeAds',
       status: t('projects.status.completed'),
@@ -37,7 +37,7 @@ const ProjectsSection = () => {
     {
       title: t('projects.java.title'),
       description: t('projects.java.description'),
-      tags: ['Java', 'Swing', 'GUI Development', 'Desktop Apps'],
+      tags: ['Java', 'GUI Development', 'Desktop Apps'],
       icon: <Monitor className="w-6 h-6" />,
       status: t('projects.status.completed'),
       type: 'desktop',
@@ -55,7 +55,7 @@ const ProjectsSection = () => {
     {
       title: t('projects.website.title'),
       description: t('projects.website.description'),
-      tags: ['HTML', 'CSS', 'JavaScript', 'Competitive Programming'],
+      tags: ['HTML', 'CSS', 'PHP'],
       icon: <Globe className="w-6 h-6" />,
       status: t('projects.status.completed'),
       type: 'web',
