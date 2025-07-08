@@ -1,10 +1,12 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { language, toggleLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,11 +25,11 @@ const Navigation = () => {
   };
 
   const navLinks = [
-    { name: 'Home', id: 'hero' },
-    { name: 'About', id: 'about' },
-    { name: 'Projects', id: 'projects' },
-    { name: 'Skills', id: 'skills' },
-    { name: 'Contact', id: 'contact' },
+    { name: t('nav.home'), id: 'hero' },
+    { name: t('nav.about'), id: 'about' },
+    { name: t('nav.projects'), id: 'projects' },
+    { name: t('nav.skills'), id: 'skills' },
+    { name: t('nav.contact'), id: 'contact' },
   ];
 
   return (
@@ -41,23 +43,37 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <button
                 key={link.id}
                 onClick={() => scrollToSection(link.id)}
-                className="nav-link hover:text-hacker-green-400 transition-colors"
+                className="nav-link hover:text-hacker-green-400 transition-colors cursor-hover-effect"
               >
                 {link.name}
               </button>
             ))}
+            
+            <button
+              onClick={toggleLanguage}
+              className="px-3 py-1 border border-hacker-green-400/40 rounded text-hacker-green-400 hover:bg-hacker-green-400 hover:text-dark-bg-900 transition-all duration-300 font-mono text-sm cursor-hover-effect"
+            >
+              {language === 'th' ? 'EN' : 'TH'}
+            </button>
           </div>
 
           {/* Mobile Navigation Button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-4">
+            <button
+              onClick={toggleLanguage}
+              className="px-2 py-1 border border-hacker-green-400/40 rounded text-hacker-green-400 hover:bg-hacker-green-400 hover:text-dark-bg-900 transition-all duration-300 font-mono text-xs cursor-hover-effect"
+            >
+              {language === 'th' ? 'EN' : 'TH'}
+            </button>
+            
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-foreground hover:text-hacker-green-400 transition-colors"
+              className="text-foreground hover:text-hacker-green-400 transition-colors cursor-hover-effect"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -72,7 +88,7 @@ const Navigation = () => {
                 <button
                   key={link.id}
                   onClick={() => scrollToSection(link.id)}
-                  className="block nav-link hover:text-hacker-green-400 transition-colors w-full text-left"
+                  className="block nav-link hover:text-hacker-green-400 transition-colors w-full text-left cursor-hover-effect"
                 >
                   {link.name}
                 </button>

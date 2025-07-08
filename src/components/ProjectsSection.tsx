@@ -1,53 +1,64 @@
 
-import { ExternalLink, Github, Code, Smartphone, Globe, Gamepad2, Bot } from 'lucide-react';
+import { ExternalLink, Github, Code, Smartphone, Globe, Gamepad2, Bot, Monitor } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const ProjectsSection = () => {
+  const { t } = useLanguage();
+  
   const projects = [
     {
-      title: 'AI-Powered Web Applications',
-      description: 'Currently developing two separate web projects that leverage the power of AI to create intelligent and responsive user experiences.',
+      title: t('projects.ai.title'),
+      description: t('projects.ai.description'),
       tags: ['AI', 'Web Development', 'JavaScript', 'Python'],
       icon: <Bot className="w-6 h-6" />,
-      status: 'In Development',
+      status: t('projects.status.development'),
       type: 'ai'
     },
     {
-      title: 'WelcomeAds - Minecraft Plugin',
-      description: 'Developed a custom server-side plugin for Minecraft using Java and Maven. The plugin integrates with APIs from other popular plugins to create a seamless welcome experience.',
+      title: t('projects.minecraft.title'),
+      description: t('projects.minecraft.description'),
       tags: ['Java', 'Maven', 'Spigot API', 'Game Development', 'API Integration'],
       icon: <Gamepad2 className="w-6 h-6" />,
       github: 'https://github.com/TiNYsx/WelcomeAds',
-      status: 'Completed',
+      status: t('projects.status.completed'),
       type: 'game'
     },
     {
-      title: 'Java-Based Mobile App',
-      description: 'Developed a functional mobile application based on an original Java GUI program, translating desktop logic into a mobile-first experience.',
-      tags: ['Mobile Development', 'Java', 'Android'],
+      title: t('projects.mobile.title'),
+      description: t('projects.mobile.description'),
+      tags: ['.NET MAUI', 'C#', 'Cross-platform', 'Mobile Development'],
       icon: <Smartphone className="w-6 h-6" />,
-      status: 'Completed',
+      status: t('projects.status.completed'),
       type: 'mobile'
     },
     {
-      title: 'Desktop GUI Programs',
-      description: 'Created user-friendly desktop applications using Python and Java, focusing on intuitive graphical user interfaces and solid backend logic.',
-      tags: ['Python', 'Java', 'GUI Development'],
-      icon: <Code className="w-6 h-6" />,
-      status: 'Completed',
+      title: t('projects.java.title'),
+      description: t('projects.java.description'),
+      tags: ['Java', 'Swing', 'GUI Development', 'Desktop Apps'],
+      icon: <Monitor className="w-6 h-6" />,
+      status: t('projects.status.completed'),
       type: 'desktop'
     },
     {
-      title: 'Competitive & School Websites',
-      description: 'Honed front-end skills by building a comprehensive school website and participating in a fast-paced website creation competition.',
+      title: t('projects.python.title'),
+      description: t('projects.python.description'),
+      tags: ['Python', 'Tkinter', 'PyQt', 'GUI Development'],
+      icon: <Code className="w-6 h-6" />,
+      status: t('projects.status.completed'),
+      type: 'desktop'
+    },
+    {
+      title: t('projects.website.title'),
+      description: t('projects.website.description'),
       tags: ['HTML', 'CSS', 'JavaScript', 'Competitive Programming'],
       icon: <Globe className="w-6 h-6" />,
-      status: 'Completed',
+      status: t('projects.status.completed'),
       type: 'web'
     }
   ];
 
   const getStatusColor = (status: string) => {
-    return status === 'In Development' ? 'text-yellow-400' : 'text-hacker-green-400';
+    return status === t('projects.status.development') ? 'text-yellow-400' : 'text-hacker-green-400';
   };
 
   const getTypeColor = (type: string) => {
@@ -64,15 +75,15 @@ const ProjectsSection = () => {
   return (
     <section id="projects" className="py-20 px-4 bg-dark-bg-950">
       <div className="max-w-7xl mx-auto">
-        <h2 className="section-title text-center">
-          {'> Executing Programs: My Projects'}
+        <h2 className="text-3xl md:text-4xl font-bold text-hacker-green-400 mb-12 text-center">
+          {t('projects.title')}
         </h2>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <div
               key={project.title}
-              className={`project-card bg-gradient-to-br ${getTypeColor(project.type)} hover:scale-105 transform transition-all duration-300 group`}
+              className={`project-card bg-gradient-to-br ${getTypeColor(project.type)} hover:scale-105 transform transition-all duration-300 group cursor-hover-effect`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="flex items-start justify-between mb-4">
@@ -85,13 +96,13 @@ const ProjectsSection = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-foreground/60 hover:text-hacker-green-400 transition-colors"
+                      className="text-foreground/60 hover:text-hacker-green-400 transition-colors cursor-hover-effect"
                     >
                       <Github className="w-5 h-5" />
                     </a>
                   )}
-                  {project.status === 'Completed' && (
-                    <ExternalLink className="w-5 h-5 text-foreground/60 hover:text-hacker-green-400 transition-colors cursor-pointer" />
+                  {project.status === t('projects.status.completed') && (
+                    <ExternalLink className="w-5 h-5 text-foreground/60 hover:text-hacker-green-400 transition-colors cursor-hover-effect" />
                   )}
                 </div>
               </div>
@@ -127,7 +138,7 @@ const ProjectsSection = () => {
 
         <div className="text-center mt-12">
           <div className="font-mono text-hacker-green-400/60 text-sm">
-            {'// More projects in development...'}
+            {t('projects.more')}
           </div>
         </div>
       </div>

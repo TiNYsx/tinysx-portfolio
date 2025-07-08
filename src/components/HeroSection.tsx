@@ -1,14 +1,15 @@
 
 import { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const HeroSection = () => {
   const [displayedText, setDisplayedText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showCursor, setShowCursor] = useState(true);
+  const { t } = useLanguage();
   
   const fullName = 'Jirawat Thipphinit';
-  const taglines = ['Gamer.', 'Developer.', 'AI Enthusiast.'];
 
   useEffect(() => {
     if (currentIndex < fullName.length) {
@@ -56,38 +57,26 @@ const HeroSection = () => {
       </div>
 
       <div className="text-center z-10 px-4">
-        <div className="mb-8">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-mono font-bold text-hacker-green-400 mb-4">
+        <div className="mb-12">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-mono font-bold text-hacker-green-400 mb-8">
             {displayedText}
             <span className={`border-r-2 border-hacker-green-400 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity`}>
               &nbsp;
             </span>
           </h1>
-          
-          <div className="text-xl md:text-2xl lg:text-3xl text-foreground/80 font-sans space-y-2">
-            {taglines.map((tagline, index) => (
-              <div
-                key={tagline}
-                className="animate-fade-in-up"
-                style={{ animationDelay: `${3 + index * 0.5}s` }}
-              >
-                {tagline}
-              </div>
-            ))}
-          </div>
         </div>
 
         <div 
           className="text-lg md:text-xl text-foreground/60 font-mono animate-fade-in-up"
-          style={{ animationDelay: '5s' }}
+          style={{ animationDelay: '3s' }}
         >
-          {'> Building the future, one line of code at a time_'}
+          {t('hero.tagline')}
         </div>
 
         <button
           onClick={scrollToAbout}
-          className="mt-12 animate-bounce p-2 rounded-full border border-hacker-green-400/30 hover:border-hacker-green-400 transition-colors duration-300"
-          style={{ animationDelay: '6s' }}
+          className="mt-12 animate-bounce p-2 rounded-full border border-hacker-green-400/30 hover:border-hacker-green-400 transition-colors duration-300 cursor-hover-effect"
+          style={{ animationDelay: '4s' }}
         >
           <ChevronDown className="w-6 h-6 text-hacker-green-400" />
         </button>
