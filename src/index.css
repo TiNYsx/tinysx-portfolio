@@ -101,13 +101,13 @@ All colors MUST be HSL.
     @apply text-3xl md:text-4xl font-bold font-mono text-hacker-green-400 mb-8;
   }
 
-  /* Custom hover cursor effect */
+  /* Updated cursor hover effect - small solid dot */
   .cursor-hover-effect {
-    cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><rect x='11' y='0' width='2' height='24' fill='%2339ff14'/><rect x='0' y='11' width='24' height='2' fill='%2339ff14'/><circle cx='12' cy='12' r='8' fill='none' stroke='%2339ff14' stroke-width='1' opacity='0.5'/></svg>"), crosshair;
+    cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><rect x='9' y='0' width='2' height='20' fill='%2339ff14'/><rect x='0' y='9' width='20' height='2' fill='%2339ff14'/></svg>"), crosshair;
   }
 
   .cursor-hover-effect:hover {
-    cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><rect x='11' y='0' width='2' height='24' fill='%2339ff14'/><rect x='0' y='11' width='24' height='2' fill='%2339ff14'/><circle cx='12' cy='12' r='10' fill='none' stroke='%2339ff14' stroke-width='2' opacity='0.8'/></svg>"), crosshair;
+    cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'><circle cx='10' cy='10' r='4' fill='%2339ff14'/></svg>"), pointer;
   }
 
   .glitch-text {

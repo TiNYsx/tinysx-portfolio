@@ -42,7 +42,7 @@ const HeroSection = () => {
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="absolute text-hacker-green-400 text-xs font-mono animate-matrix-rain"
+            className="absolute text-hacker-green-400 text-xs font-mono animate-matrix-rain hidden sm:block"
             style={{
               left: `${i * 5}%`,
               animationDelay: `${i * 0.1}s`,
@@ -56,9 +56,9 @@ const HeroSection = () => {
         ))}
       </div>
 
-      <div className="text-center z-10 px-4">
-        <div className="mb-12">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-mono font-bold text-hacker-green-400 mb-8">
+      <div className="text-center z-10 px-4 w-full max-w-4xl mx-auto">
+        <div className="mb-8 sm:mb-12">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-mono font-bold text-hacker-green-400 mb-4 sm:mb-8 break-words">
             {displayedText}
             <span className={`border-r-2 border-hacker-green-400 ${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity`}>
               &nbsp;
@@ -66,19 +66,12 @@ const HeroSection = () => {
           </h1>
         </div>
 
-        <div 
-          className="text-lg md:text-xl text-foreground/60 font-mono animate-fade-in-up"
-          style={{ animationDelay: '3s' }}
-        >
-          {t('hero.tagline')}
-        </div>
-
         <button
           onClick={scrollToAbout}
-          className="mt-12 animate-bounce p-2 rounded-full border border-hacker-green-400/30 hover:border-hacker-green-400 transition-colors duration-300 cursor-hover-effect"
+          className="mt-8 sm:mt-12 animate-bounce p-2 rounded-full border border-hacker-green-400/30 hover:border-hacker-green-400 transition-colors duration-300 cursor-hover-effect"
           style={{ animationDelay: '4s' }}
         >
-          <ChevronDown className="w-6 h-6 text-hacker-green-400" />
+          <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6 text-hacker-green-400" />
         </button>
       </div>
 
