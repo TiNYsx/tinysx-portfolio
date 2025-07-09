@@ -37,7 +37,7 @@ const translations = {
     'about.status.student': 'นักศึกษามหาวิทยาลัย',
     'about.status.coop': 'มองหาโอกาสฝึกงาน Co-op',
     'about.status.focus': 'เน้น AI และการพัฒนาเว็บไซต์',
-    'about.status.comment': '// ขับเคลื่อนด้วยความอยากรู้ พลังงานจากกาแฟ',
+    'about.status.comment': '// ขับเคลื่อนด้วยความอยากรู้ด้วยพลังงานชาเขียว',
     
     // Projects Section
     'projects.title': '02. ผลงานที่ผ่านๆมา',
